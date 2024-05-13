@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getStudents } from "../../api/StudentService";
+import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 // Strg + d : escape
 // duplicate : shift & alt
@@ -9,7 +11,7 @@ const StudentsView = () => {
   const loadStudents = async () => {
     const response = await getStudents();
     if (response.status === 302) {
-        setStudents(response.data);
+      setStudents(response.data);
     }
   };
 
@@ -19,7 +21,7 @@ const StudentsView = () => {
 
   return (
     <section>
-      <table>
+      <table className="table table-bordered table-hover shadow">
         <thead>
           <tr>
             <th>ID</th>
@@ -30,7 +32,7 @@ const StudentsView = () => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-center">
           {students.map((student, index) => (
             <tr key={student.id}>
               <th scope="row" key={index}>
