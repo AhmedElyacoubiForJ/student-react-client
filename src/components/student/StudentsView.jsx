@@ -44,12 +44,18 @@ const StudentsView = () => {
               <td>{student.email}</td>
               <td>{student.department}</td>
               <td className="mx-2">
-                <button className="btn btn-info">
+                <Link
+                  to={`/student-profile/${student.id}`}
+                  className="btn btn-info"
+                >
                   <FaEye />
-                </button>
+                </Link>
               </td>
               <td className="mx-2">
-                <Link to={`/edit-student/${student.id}`} className="btn btn-warning">
+                <Link
+                  to={`/edit-student/${student.id}`}
+                  className="btn btn-warning"
+                >
                   <FaEdit />
                 </Link>
               </td>
