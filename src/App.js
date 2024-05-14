@@ -9,7 +9,6 @@ import StudentProfile from "./components/student/StudentProfile";
 import NavBar from "./components/common/NavBar";
 import Home from "./Home"
 
-
 function App() {
   return (
     <main className="container mt-5">
