@@ -23,7 +23,7 @@ const StudentsView = () => {
     <section>
       <table className="table table-bordered table-hover shadow">
         <thead>
-          <tr>
+          <tr className="text-center">
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -44,13 +44,19 @@ const StudentsView = () => {
               <td>{student.email}</td>
               <td>{student.department}</td>
               <td className="mx-2">
-                <button className="btn btn-info">View</button>
+                <button className="btn btn-info">
+                  <FaEye />
+                </button>
               </td>
               <td className="mx-2">
-              <button className="btn btn-warning">Update</button>
+                <Link to={`/edit-student/${student.id}`} className="btn btn-warning">
+                  <FaEdit />
+                </Link>
               </td>
               <td className="mx-2">
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-danger">
+                  <FaTrashAlt />
+                </button>
               </td>
             </tr>
           ))}
