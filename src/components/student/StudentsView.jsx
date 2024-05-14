@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getStudents } from "../../api/StudentService";
+import { getStudents, deleteStudent } from "../../api/StudentService";
 import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -13,6 +13,11 @@ const StudentsView = () => {
     if (response.status === 302) {
       setStudents(response.data);
     }
+  };
+
+  const handleDelete = async (id) => {
+    await deleteStudent(id);
+    loadStudents();
   };
 
   useEffect(() => {
@@ -60,7 +65,7 @@ const StudentsView = () => {
                 </Link>
               </td>
               <td className="mx-2">
-                <button className="btn btn-danger">
+                <button className="btn btn-danger" onClick={() => handleDelete(student.id)}>
                   <FaTrashAlt />
                 </button>
               </td>
